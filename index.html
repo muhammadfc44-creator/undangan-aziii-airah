@@ -131,10 +131,21 @@
     }, 1000);
   </script>
   
-  <!-- Background Music -->
-<audio autoplay loop hidden>
+<!-- Background Music (Play on Scroll) -->
+<audio id="bgm" loop>
   <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_1b8ed74739.mp3?filename=romantic-calm-piano-140274.mp3" type="audio/mpeg">
 </audio>
+
+<script>
+  let started = false;
+  window.addEventListener("scroll", () => {
+    if (!started) {
+      const audio = document.getElementById("bgm");
+      audio.play().catch(() => {});
+      started = true;
+    }
+  });
+</script>
 
 
   <!-- Guestbook -->
